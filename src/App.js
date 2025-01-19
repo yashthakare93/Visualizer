@@ -6,6 +6,7 @@ import Visualizer from './pages/Visualizer';
 import BubbleSort from './algorithm/BubbleSort';
 import QuickSort from './algorithm/QuickSort';
 import InsertionSort from './algorithm/InsertionSort';
+import SortingComparison from './comparison/SortingComparison';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
                 <Route path="/visualizer/bubble" element={<BubbleSort/>} /> 
                 <Route path="/visualizer/quick" element={<QuickSort/>} /> 
                 <Route path="/visualizer/insertion" element={<InsertionSort/>} /> 
+                <Route path="/visualizer/algoComparison" element={<SortingComparison/>} /> 
             </Routes>
         </Router>
     );

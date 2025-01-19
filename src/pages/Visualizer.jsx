@@ -25,6 +25,14 @@ const visualizations = [
         description:
             'Explore the Insertion Sort algorithm and see how elements are inserted into their correct positions iteratively.',
     },
+    {
+        id: 4,
+        title: 'Algorithm Comparison',
+        href: '/visualizer/algoComparison',
+        description:
+            'Explore and compare multiple sorting algorithms like Bubble Sort, Insertion Sort, Selection Sort, Quick Sort, Merge Sort, Heap Sort, and Radix Sort. See their performance side by side using real-time visualizations to understand their efficiency and behavior.',
+    }
+    
 ];
 
 export default function Visualizer() {
