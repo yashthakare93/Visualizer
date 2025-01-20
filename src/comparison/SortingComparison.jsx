@@ -7,7 +7,6 @@ import MergeSort from './MergeSort';
 import HeapSort from './HeapSort';
 import RadixSort from './RadixSort';
 import CountingSort from './CountingSort';
-import ShellSort from './ShellSort';
 import SortingBars from './SortingBars';
 
 const SortingComparison = () => {
@@ -44,10 +43,9 @@ const SortingComparison = () => {
     const [heapArray, setHeapArray] = useState([...initialArray]);
     const [radixArray, setRadixArray] = useState([...initialArray]);
     const [countingArray, setCountingArray] = useState([...initialArray]);
-    const [shellArray, setShellArray] = useState([...initialArray]);
 
     const [isSorting, setIsSorting] = useState(false);
-    const [caseType, setCaseType] = useState('average'); // Default case is 'average'
+    const [caseType, setCaseType] = useState('average');
 
 
     // Handle case change
@@ -69,7 +67,6 @@ const SortingComparison = () => {
         setHeapArray([...newArray]);
         setRadixArray([...newArray]);
         setCountingArray([...newArray]);
-        setShellArray([...newArray]);
     };
 
     const handleSortClick = () => {
@@ -89,7 +86,6 @@ const SortingComparison = () => {
         setHeapArray([...initialArray]);
         setRadixArray([...initialArray]);
         setCountingArray([...initialArray]);
-        setShellArray([...initialArray]);
         setCaseType('average');
     };
 
@@ -102,37 +98,43 @@ const SortingComparison = () => {
                 <div className="flex space-x-4 mb-6">
                     <button
                         onClick={handleSortClick}
-                        className="bg-green-500 text-white px-6 py-2 rounded "
+                        className={`bg-green-500 text-white px-6 py-2 rounded transition duration-300 
+                        ${isSorting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600 focus:ring-2 focus:ring-green-300'}`}
                         disabled={isSorting}
                     >
                         Start Sorting
                     </button>
                     <button
                         onClick={() => handleCaseChange('best')}
-                        className="bg-blue-500 text-white px-6 py-2 rounded"
+                        className={`bg-blue-500 text-white px-6 py-2 rounded transition duration-300
+                        ${caseType === 'best' ? 'bg-blue-600' : 'hover:bg-blue-600 focus:ring-2 focus:ring-blue-300'}`}
                     >
                         Best Case
                     </button>
                     <button
                         onClick={() => handleCaseChange('worst')}
-                        className="bg-red-500 text-white px-6 py-2 rounded"
+                        className={`bg-red-500 text-white px-6 py-2 rounded transition duration-300
+                        ${caseType === 'worst' ? 'bg-red-600' : 'hover:bg-red-600 focus:ring-2 focus:ring-red-300'}`}
                     >
                         Worst Case
                     </button>
                     <button
                         onClick={() => handleCaseChange('average')}
-                        className="bg-gray-500 text-white px-6 py-2 rounded"
+                        className={`bg-gray-500 text-white px-6 py-2 rounded transition duration-300
+                        ${caseType === 'average' ? 'bg-gray-600' : 'hover:bg-gray-600 focus:ring-2 focus:ring-gray-300'}`}
                     >
                         Average Case
                     </button>
                     <button
                         onClick={handleReset}
-                        className="bg-yellow-500 text-white px-6 py-2 rounded"
+                        className={`bg-yellow-500 text-white px-6 py-2 rounded transition duration-300 
+                        ${isSorting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-300'}`}
                         disabled={isSorting}
                     >
                         Reset
                     </button>
                 </div>
+
             </div>
 
             <div
@@ -147,68 +149,65 @@ const SortingComparison = () => {
             >
                 <div className="space-y-8 flex flex-col">
                     <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Bubble Sort (O(n^2))</h2>
+                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
+                            <h2 className="text-2xl font-semibold text-white mb-2 ">
+                                Bubble Sort (O(n^2))
+                            </h2>
+
                             <SortingBars array={bubbleArray} />
                             <BubbleSort array={bubbleArray} setArray={setBubbleArray} isSorting={isSorting} />
                         </div>
 
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Quick Sort (O(n log n))</h2>
+
+                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
+                        <h2 className="text-2xl font-semibold text-white mb-2">Quick Sort (O(n log n))</h2>
                             <SortingBars array={quickArray} />
                             <QuickSort array={quickArray} setArray={setQuickArray} isSorting={isSorting} />
                         </div>
                     </div>
 
                     <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Insertion Sort (O(n^2))</h2>
+                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
+                        <h2 className="text-2xl font-semibold text-white mb-2">Insertion Sort (O(n^2))</h2>
                             <SortingBars array={insertionArray} />
                             <InsertionSort array={insertionArray} setArray={setInsertionArray} isSorting={isSorting} />
                         </div>
 
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Selection Sort (O(n^2))</h2>
+                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
+                                 <h2 className="text-2xl font-semibold text-white mb-2">Selection Sort (O(n^2))</h2>
                             <SortingBars array={selectionArray} />
                             <SelectionSort array={selectionArray} setArray={setSelectionArray} isSorting={isSorting} />
                         </div>
                     </div>
 
                     <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Merge Sort (O(n log n))</h2>
+                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
+                                 <h2 className="text-2xl font-semibold text-white mb-2">Merge Sort (O(n log n))</h2>
                             <SortingBars array={mergeArray} />
                             <MergeSort array={mergeArray} setArray={setMergeArray} isSorting={isSorting} />
                         </div>
 
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Heap Sort (O(n log n))</h2>
+                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
+                                 <h2 className="text-2xl font-semibold text-white mb-2">Heap Sort (O(n log n))</h2>
                             <SortingBars array={heapArray} />
                             <HeapSort array={heapArray} setArray={setHeapArray} isSorting={isSorting} />
                         </div>
                     </div>
 
                     <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Radix Sort (O(nk))</h2>
+                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
+                                 <h2 className="text-2xl font-semibold text-white mb-2">Radix Sort (O(nk))</h2>
                             <SortingBars array={radixArray} />
                             <RadixSort array={radixArray} setArray={setRadixArray} isSorting={isSorting} />
                         </div>
 
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Counting Sort (O(n + k))</h2>
+                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
+                                 <h2 className="text-2xl font-semibold text-white mb-2">Counting Sort (O(n + k))</h2>
                             <SortingBars array={countingArray} />
                             <CountingSort array={countingArray} setArray={setCountingArray} isSorting={isSorting} />
                         </div>
                     </div>
 
-                    <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2">
-                            <h2 className="text-xl mb-2">Shell Sort (O(n^2) to O(n log n))</h2>
-                            <SortingBars array={shellArray} />
-                            <ShellSort array={shellArray} setArray={setShellArray} isSorting={isSorting} />
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

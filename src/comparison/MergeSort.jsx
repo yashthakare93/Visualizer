@@ -1,38 +1,57 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const MergeSort = ({ array, setArray, isSorting }) => {
     const isSortedRef = useRef(false);
 
-    const mergeSort = async (arr) => {
-        const merge = async (left, right) => {
-            let sorted = [];
-            while (left.length && right.length) {
-                if (left[0] < right[0]) sorted.push(left.shift());
-                else sorted.push(right.shift());
-            }
-            return [...sorted, ...left, ...right];
-        };
+    const mergeSort = async (arr, start, end) => {
+        if (start >= end) return;
 
-        const divide = async (arr) => {
-            if (arr.length <= 1) return arr;
+        const mid = Math.floor((start + end) / 2);
 
-            const mid = Math.floor(arr.length / 2);
-            const left = await divide(arr.slice(0, mid));
-            const right = await divide(arr.slice(mid));
+        // Recursively divide the array
+        await mergeSort(arr, start, mid);
+        await mergeSort(arr, mid + 1, end);
 
-            const merged = await merge(left, right);
-            setArray([...merged]); // Update state
-            await new Promise(resolve => setTimeout(resolve, 50)); // Delay
-            return merged;
-        };
-
-        await divide(arr);
+        // Merge and visualize the arrays
+        await merge(arr, start, mid, end);
     };
 
-    if (isSorting && !isSortedRef.current) {
-        isSortedRef.current = true;
-        mergeSort([...array]);
-    }
+    const merge = async (arr, start, mid, end) => {
+        let left = arr.slice(start, mid + 1);
+        let right = arr.slice(mid + 1, end + 1);
+
+        let i = start;
+        while (left.length && right.length) {
+            if (left[0] <= right[0]) {
+                arr[i++] = left.shift();
+            } else {
+                arr[i++] = right.shift();
+            }
+
+            // Update array state for visualization
+            setArray([...arr]);
+            await new Promise(resolve => setTimeout(resolve, 10)); // Delay for animation
+        }
+
+        while (left.length) {
+            arr[i++] = left.shift();
+            setArray([...arr]);
+      
+        }
+
+        while (right.length) {
+            arr[i++] = right.shift();
+            setArray([...arr]);
+        }
+    };
+
+    useEffect(() => {
+        if (isSorting && !isSortedRef.current) {
+            isSortedRef.current = true;
+            const arr = [...array];
+            mergeSort(arr, 0, arr.length - 1);
+        }
+    }, [isSorting, array]);
 
     return null;
 };
