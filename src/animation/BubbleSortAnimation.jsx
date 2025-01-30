@@ -82,10 +82,6 @@ const BubbleSortAnimation = () => {
 
   return (
     <div className="flex flex-col">
-      <h2 className="text-2xl pb-4 font-serif font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-        Bubble Sort Animation
-      </h2>
-
       <div className="flex w-full gap-6">
         {/* Algorithm Code Section */}
         <div className="flex-1">

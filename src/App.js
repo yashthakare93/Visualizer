@@ -8,6 +8,7 @@ import QuickSort from './algorithm/QuickSort';
 import InsertionSort from './algorithm/InsertionSort';
 import SortingComparison from './comparison/SortingComparison';
 import SortingAlgorithms from './components/SortingAlgorithms';
+import SearchingAlgorithms from './components/SearchingAlgorithms';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
                 <Route path="/visualizer/insertion" element={<InsertionSort/>} /> 
                 <Route path="/visualizer/algoComparison" element={<SortingComparison/>} /> 
                 <Route path="/visualizer/sortingAlgorithm" element={<SortingAlgorithms/>} />
+                <Route path="/visualizer/searchingAlgorithm" element={<SearchingAlgorithms/>} />
             </Routes>
         </Router>
     );

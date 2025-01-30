@@ -33,11 +33,18 @@ const visualizations = [
             'Explore and compare multiple sorting algorithms like Bubble Sort, Insertion Sort, Selection Sort, Quick Sort, Merge Sort, Heap Sort, and Radix Sort. See their performance side by side using real-time visualizations to understand their efficiency and behavior.',
     },
     {
-        id: 1,
+        id: 5,
         title: 'Sorting Algorithm',
         href: '/visualizer/sortingAlgorithm',
         description:
-            'Visualize the Bubble Sort algorithm with step-by-step animations. Learn how it works and understand its time complexity.',
+            'Visualize the Sorting algorithm ',
+    },
+    {
+        id: 6,
+        title: 'Searching Algorithm',
+        href: '/visualizer/searchingAlgorithm',
+        description:
+            'Visualize the Searching algorithm ',
     },
     
 ];
