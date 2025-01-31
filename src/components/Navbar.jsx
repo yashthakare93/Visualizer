@@ -11,20 +11,21 @@ const Navbar = () => {
         <header className="fixed top-0 left-0 w-full lg:bg-gray-900 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
                 <div
-                    className="hidden lg:block text-2xl font-bold text-teal-300 transition duration-300 ease-in-out transform hover:scale-105">
-                    Sorting Visualizer
+                    className="hidden lg:block text-4xl font-extrabold text-indigo-600 transition duration-300 ease-in-out transform hover:scale-110 cursor-pointer">
+                    Easy DSA
                 </div>
+
                 <nav className="hidden lg:flex space-x-12">
-                    <NavItem href="https://github.com/yashthakare93" target="_blank" rel="noopener noreferrer"  label="Github"/>
-                    <NavItem href="https://yashthakare.vercel.app/" target="_blank" rel="noopener noreferrer"  label="Portfolio"/>
-                    <NavItem href="/contact" label="Contact"/>
+                    <NavItem href="https://github.com/yashthakare93" target="_blank" rel="noopener noreferrer" label="Github" />
+                    <NavItem href="https://yashthakare.vercel.app/" target="_blank" rel="noopener noreferrer" label="Portfolio" />
+                    <NavItem href="/contact" label="Contact" />
                 </nav>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden">
                     <button onClick={toggleMenu}
-                            className="text-white focus:outline-none transition duration-300 ease-in-out transform hover:scale-105">
-                        {isOpen ? <CloseIcon/> : <MenuIcon/>}
+                        className="text-white focus:outline-none transition duration-300 ease-in-out transform hover:scale-105">
+                        {isOpen ? <CloseIcon /> : <MenuIcon />}
                     </button>
                 </div>
             </div>
@@ -33,10 +34,10 @@ const Navbar = () => {
             {isOpen && (
                 <div className="md:hidden bg-gray-800 shadow-lg">
                     <div className="flex flex-col p-4 space-y-2">
-                        <NavItem href="/github" label="Github"/>
-                        <NavItem href="/portfolio" label="Portfolio"/>
-                        <NavItem href="/features" label="Features"/>
-                        <NavItem href="/contact" label="Contact"/>
+                        <NavItem href="/github" label="Github" />
+                        <NavItem href="/portfolio" label="Portfolio" />
+                        <NavItem href="/features" label="Features" />
+                        <NavItem href="/contact" label="Contact" />
                     </div>
                 </div>
             )}
@@ -44,7 +45,7 @@ const Navbar = () => {
     );
 };
 
-const NavItem = ({href, label}) => (
+const NavItem = ({ href, label }) => (
     <a
         href={href}
         className="text-base font-medium text-gray-200 hover:text-teal-300 transition duration-200 ease-in-out"

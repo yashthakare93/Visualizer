@@ -2,19 +2,27 @@ import React from 'react';
 
 const SortingBars = ({ array }) => {
     return (
-        <div className="flex justify-center items-end space-x-1 mt-4">
-            {array.map((value, index) => (
-                <div
-                    key={index}
-                    style={{
-                        height: `${value * 2}px`, 
-                        width: '10px',
-                        backgroundColor: '#4CAF50', 
-                        borderRadius: '3px',
-                        border: '1px solid #3E8E41', 
-                    }}
-                ></div>
-            ))}
+        <div className="w-full overflow-x-auto py-2">
+            <div 
+                className="flex justify-start items-end gap-0.5"
+                style={{ 
+                    minWidth: `${array.length * 4}px`, // Adjusted for better spacing
+                    height: '200px' // Increased height
+                }}
+            >
+                {array.map((value, index) => (
+                    <div
+                        key={index}
+                        style={{
+                            height: `${value * 1.8}px`, // Reduced multiplier for better fit
+                            width: '6px', // Slightly wider for visibility
+                            backgroundColor: '#3B82F6',
+                            borderRadius: '3px',
+                            transition: 'height 0.3s ease',
+                        }}
+                    ></div>
+                ))}
+            </div>
         </div>
     );
 };

@@ -90,125 +90,80 @@ const SortingComparison = () => {
     };
 
     return (
-        <div className="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center">
-            <div className="flex items-center justify-center w-full mb-6 px-6 p-4">
-                <h1 className="text-4xl font-mono mb-6 mr-8">Sorting Algorithms Comparison</h1>
+        <div className="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center py-6 sm:p-6">
+            {/* Header Section */}
+            <div className="w-full max-w-8xl">
+                <div className="flex flex-col items-center mb-4 sm:mb-6">
+                    <h1 className="text-2xl sm:text-4xl font-mono mb-4">Sorting Algorithms <span className='text-green-400'> Comparison</span></h1>
+                    {/* Control Buttons */}
+                    <div className="flex flex-wrap gap-2 justify-center w-full mb-4">
+                        <button
+                            onClick={handleSortClick}
+                            className={`px-4 py-2 text-sm sm:text-base sm:px-6 sm:py-2 rounded transition duration-300 
+                    ${isSorting ? 'bg-gray-600 cursor-not-allowed' : 'bg-cyan-500 hover:bg-cyan-600'}`}
+                            disabled={isSorting}
+                        >
+                            {isSorting ? 'Sorting...' : 'Start Sorting'}
+                        </button>
+
+                        <div className="flex flex-wrap gap-2 justify-center">
+                            {['best', 'worst', 'average'].map((type) => {
+                                const colors = {
+                                    best: 'bg-green-600 hover:bg-green-700',
+                                    worst: 'bg-red-600 hover:bg-red-700',
+                                    average: 'bg-yellow-600 hover:bg-yellow-700',
+                                };
+
+                                return (
+                                    <button
+                                        key={type}
+                                        onClick={() => handleCaseChange(type)}
+                                        className={`px-3 py-1 text-sm sm:text-base sm:px-4 sm:py-2 rounded capitalize 
+          ${colors[type]} ${caseType === type ? 'brightness-125' : 'brightness-100'}`}
+                                    >
+                                        {type} Case
+                                    </button>
+                                );
+                            })}
+                        </div>
 
 
-                <div className="flex space-x-4 mb-6">
-                    <button
-                        onClick={handleSortClick}
-                        className={`bg-green-500 text-white px-6 py-2 rounded transition duration-300 
-                        ${isSorting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600 focus:ring-2 focus:ring-green-300'}`}
-                        disabled={isSorting}
-                    >
-                        Start Sorting
-                    </button>
-                    <button
-                        onClick={() => handleCaseChange('best')}
-                        className={`bg-blue-500 text-white px-6 py-2 rounded transition duration-300
-                        ${caseType === 'best' ? 'bg-blue-600' : 'hover:bg-blue-600 focus:ring-2 focus:ring-blue-300'}`}
-                    >
-                        Best Case
-                    </button>
-                    <button
-                        onClick={() => handleCaseChange('worst')}
-                        className={`bg-red-500 text-white px-6 py-2 rounded transition duration-300
-                        ${caseType === 'worst' ? 'bg-red-600' : 'hover:bg-red-600 focus:ring-2 focus:ring-red-300'}`}
-                    >
-                        Worst Case
-                    </button>
-                    <button
-                        onClick={() => handleCaseChange('average')}
-                        className={`bg-gray-500 text-white px-6 py-2 rounded transition duration-300
-                        ${caseType === 'average' ? 'bg-gray-600' : 'hover:bg-gray-600 focus:ring-2 focus:ring-gray-300'}`}
-                    >
-                        Average Case
-                    </button>
-                    <button
-                        onClick={handleReset}
-                        className={`bg-yellow-500 text-white px-6 py-2 rounded transition duration-300 
-                        ${isSorting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-300'}`}
-                        disabled={isSorting}
-                    >
-                        Reset
-                    </button>
+                        <button
+                            onClick={handleReset}
+                            className={`px-4 py-2 text-sm sm:text-base sm:px-6 sm:py-2 rounded transition duration-300 
+                    ${isSorting ? 'bg-gray-600 cursor-not-allowed' : 'bg-teal-500 hover:bg-teal-600'}`}
+                            disabled={isSorting}
+                        >
+                            Reset
+                        </button>
+                    </div>
                 </div>
 
-            </div>
-
-            <div
-                className="flex justify-center items-center overflow-auto"
-                style={{
-                    transform: 'scale(0.5)',
-                    transformOrigin: 'center',
-                    width: '200%',
-                    height: '200%',
-                    marginTop: '-350px',
-                }}
-            >
-                <div className="space-y-8 flex flex-col">
-                    <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
-                            <h2 className="text-2xl font-semibold text-white mb-2 ">
-                                Bubble Sort (O(n^2))
+                {/* Algorithm Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 w-full">
+                    {[
+                        { component: BubbleSort, array: bubbleArray, setArray: setBubbleArray, name: 'Bubble Sort', complexity: 'O(n²)' },
+                        { component: QuickSort, array: quickArray, setArray: setQuickArray, name: 'Quick Sort', complexity: 'O(n log n)' },
+                        { component: InsertionSort, array: insertionArray, setArray: setInsertionArray, name: 'Insertion Sort', complexity: 'O(n²)' },
+                        { component: SelectionSort, array: selectionArray, setArray: setSelectionArray, name: 'Selection Sort', complexity: 'O(n²)' },
+                        { component: MergeSort, array: mergeArray, setArray: setMergeArray, name: 'Merge Sort', complexity: 'O(n log n)' },
+                        { component: HeapSort, array: heapArray, setArray: setHeapArray, name: 'Heap Sort', complexity: 'O(n log n)' },
+                        { component: RadixSort, array: radixArray, setArray: setRadixArray, name: 'Radix Sort', complexity: 'O(nk)' },
+                        { component: CountingSort, array: countingArray, setArray: setCountingArray, name: 'Counting Sort', complexity: 'O(n + k)' },
+                    ].map(({ component: Algorithm, array, setArray, name, complexity }) => (
+                        <div key={name} className="bg-gray-800 rounded-lg p-4 border border-gray-700 w-full sm:col-span-2 lg:col-span-1">
+                            <h2 className="text-lg sm:text-xl font-semibold mb-2">
+                                {name}
+                                <span className="ml-2 text-sm text-blue-400 font-mono">{complexity}</span>
                             </h2>
-
-                            <SortingBars array={bubbleArray} />
-                            <BubbleSort array={bubbleArray} setArray={setBubbleArray} isSorting={isSorting} />
+                            <div className="h-48 mb-3">
+                                <SortingBars array={array} />
+                            </div>
+                            <Algorithm array={array} setArray={setArray} isSorting={isSorting} />
                         </div>
-
-
-                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
-                        <h2 className="text-2xl font-semibold text-white mb-2">Quick Sort (O(n log n))</h2>
-                            <SortingBars array={quickArray} />
-                            <QuickSort array={quickArray} setArray={setQuickArray} isSorting={isSorting} />
-                        </div>
-                    </div>
-
-                    <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
-                        <h2 className="text-2xl font-semibold text-white mb-2">Insertion Sort (O(n^2))</h2>
-                            <SortingBars array={insertionArray} />
-                            <InsertionSort array={insertionArray} setArray={setInsertionArray} isSorting={isSorting} />
-                        </div>
-
-                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
-                                 <h2 className="text-2xl font-semibold text-white mb-2">Selection Sort (O(n^2))</h2>
-                            <SortingBars array={selectionArray} />
-                            <SelectionSort array={selectionArray} setArray={setSelectionArray} isSorting={isSorting} />
-                        </div>
-                    </div>
-
-                    <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
-                                 <h2 className="text-2xl font-semibold text-white mb-2">Merge Sort (O(n log n))</h2>
-                            <SortingBars array={mergeArray} />
-                            <MergeSort array={mergeArray} setArray={setMergeArray} isSorting={isSorting} />
-                        </div>
-
-                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
-                                 <h2 className="text-2xl font-semibold text-white mb-2">Heap Sort (O(n log n))</h2>
-                            <SortingBars array={heapArray} />
-                            <HeapSort array={heapArray} setArray={setHeapArray} isSorting={isSorting} />
-                        </div>
-                    </div>
-
-                    <div className="flex space-x-8">
-                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
-                                 <h2 className="text-2xl font-semibold text-white mb-2">Radix Sort (O(nk))</h2>
-                            <SortingBars array={radixArray} />
-                            <RadixSort array={radixArray} setArray={setRadixArray} isSorting={isSorting} />
-                        </div>
-
-                        <div className="flex flex-col items-center w-1/2 border-2 border-gray-600 p-4">
-                                 <h2 className="text-2xl font-semibold text-white mb-2">Counting Sort (O(n + k))</h2>
-                            <SortingBars array={countingArray} />
-                            <CountingSort array={countingArray} setArray={setCountingArray} isSorting={isSorting} />
-                        </div>
-                    </div>
-
+                    ))}
                 </div>
+
             </div>
         </div>
     );

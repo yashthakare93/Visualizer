@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
     const letters = "Visualize ".split("").concat(
-        <span className="font-bold text-purple-600 font-serif rounded px-1">Sorting Algorithms</span>
+        <span className="font-semibold text-purple-600 font-serif px-1">Sorting, Searching & Data Structures</span>
     );
 
     const variants = {
@@ -30,18 +30,18 @@ const Hero = () => {
     };
 
     const features = [
-        'Real-Time Visualization of Sorting Steps',
+        'Real-Time Visualization of algorithm and Data Structure Operations',
         'Adjustable Speed Control for Animations',
         'Step-by-Step Execution for Learning',
         'Customizable Animation Speed Adjustment',
-        'Compare Different Sorting Algorithms Side-by-Side',
+        'Compare Different Sorting & Searching Algorithms Side-by-Side',
         'Dynamic Data Generation for Unique Scenarios',
-        'Display of Time Complexity ',
-        'Educational Tooltips for Algorithm Insights'
+        'Display of Time Complexity for Each Algorithm',
+        'Educational Tooltips for Algorithm Insights and Explanations',
     ];
 
     return (
-        <main className="flex-grow mt-20 text-white flex flex-col items-center justify-center">
+        <main className="flex-grow mt-10 mb-14 text-white flex flex-col items-center justify-center">
             <div className="max-w-7xl mx-auto px-6 py-20 sm:px-10 lg:px-14">
                 {/* Main Content Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -59,7 +59,7 @@ const Hero = () => {
                             ))}
                         </motion.h1>
                         <p className="text-lg text-gray-400 max-w-md mx-auto md:mx-0">
-                            Discover and interact with Sorting Algorithms through
+                            Discover and interact with Sorting, Searching algorithms and Data Structure operations through
                             an immersive, feature-rich platform designed to enhance your understanding.
                         </p>
                         <div className="pt-4">
@@ -72,7 +72,7 @@ const Hero = () => {
                         </div>
                     </div>
                     {/* Feature List */}
-                    <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+                    <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-10 h-[420px] w-[100%]">
                         {features.map((feature, index) => (
                             <motion.div
                                 key={index}
@@ -83,7 +83,7 @@ const Hero = () => {
                                     duration: 0.6,
                                     ease: "easeInOut",
                                 }}
-                                className="flex items-center bg-gray-800 rounded-lg p-4 shadow-lg"
+                                className="flex items-center bg-gray-800 rounded-lg px-3 py-2 shadow-lg h-[110px]"
                             >
                                 <motion.div
                                     className="mr-3 text-indigo-500"
@@ -108,7 +108,7 @@ const Hero = () => {
                                         />
                                     </svg>
                                 </motion.div>
-                                <span className="text-lg text-gray-200 font-medium">{feature}</span>
+                                <span className="text-base text-gray-200 font-normal font-mono">{feature}</span>
                             </motion.div>
                         ))}
                     </div>
