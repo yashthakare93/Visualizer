@@ -31,18 +31,24 @@ const AlgorithmComplexity = ({ algorithm }) => {
   const complexity = complexities[algorithm] || { time: "N/A", space: "N/A", timeDetail: "N/A", spaceDetail: "N/A" };
 
   return (
-    <div className="bg-gray-800 p-8 rounded-xl shadow-2xl w-[600px] h-[350px]">
-      <h3 className="text-2xl text-yellow-400 mb-4 text-center">Algorithm Complexity</h3>
-      <div className="text-lg text-white">
-        <div className="mb-4">
+    <div className="bg-gray-800 p-4 md:p-8 rounded-xl shadow-2xl w-full max-w-2xl mx-auto min-h-[300px] md:min-h-[350px]">
+      <h3 className="text-xl md:text-2xl text-yellow-400 mb-2 md:mb-4 text-center">
+        Algorithm Complexity
+      </h3>
+      <div className="text-base md:text-lg text-white space-y-3 md:space-y-4">
+        <div>
           <p className="font-semibold">Time Complexity:</p>
           <p>{complexity.time}</p>
-          <p className="text-sm text-gray-300">{complexity.timeDetail}</p>
+          <p className="text-xs md:text-sm text-gray-300 mt-1">
+            {complexity.timeDetail}
+          </p>
         </div>
         <div>
           <p className="font-semibold">Space Complexity:</p>
           <p>{complexity.space}</p>
-          <p className="text-sm text-gray-300">{complexity.spaceDetail}</p>
+          <p className="text-xs md:text-sm text-gray-300 mt-1">
+            {complexity.spaceDetail}
+          </p>
         </div>
       </div>
     </div>

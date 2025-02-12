@@ -37,13 +37,15 @@ const Features = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="group mb-12 text-center">
-                <div className="relative z-10 mb-6 flex h-[70px] w-[70px] items-center justify-center rounded-[14px] bg-primary">
-                  <span className="absolute top-0 -z-[1] flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-[14px] bg-primary bg-opacity-20 duration-300 group-hover:rotate-45"></span>
-                  {feature.icon}
+              <div className="group mb-12 flex flex-col items-center text-center">
+                <div className="mb-6 flex h-[70px] w-[70px] items-center justify-center rounded-[14px] bg-primary">
+                  <span className="flex h-[70px] w-[70px] items-center justify-center rounded-[14px] bg-primary bg-opacity-20 duration-300">
+                    {feature.icon}
+                  </span>
                 </div>
                 <h4 className="text-xl font-bold">{feature.text}</h4>
               </div>
+
             </motion.div>
           ))}
         </div>

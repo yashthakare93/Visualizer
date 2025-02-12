@@ -96,32 +96,30 @@ const BubbleSortAnimation = () => {
   };
 
   return (
-    <div className="flex flex-col p-6">
+    <div className="flex flex-col p-4 sm:p-6">
       <div className="flex flex-col lg:flex-row gap-x-32">
         {/* Algorithm Code Section */}
-        <div className="flex-1 bg-gray-900 rounded-lg overflow-hidden shadow-xl border border-gray-800">
-          <div className="bg-gray-800 px-4 py-2 flex items-center justify-between">
+        <div className="flex-1 bg-gray-900 rounded-lg overflow-hidden shadow-xl border border-gray-800 mb-4 sm:mb-0">
+          <div className="bg-gray-800 px-3 sm:px-4 py-2 flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
             </div>
-            <span className="text-gray-400 text-sm font-mono">bubble-sort.js</span>
+            <span className="text-gray-400 text-xs sm:text-sm font-mono">bubble-sort.js</span>
           </div>
-
-          <div className="p-4 font-mono text-sm leading-7">
+          <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm leading-6 sm:leading-7 overflow-x-auto">
             <code className="text-gray-300">
               {/* Line 1 */}
               <div className="flex">
-                <span className="text-gray-600 w-8 flex-shrink-0">1</span>
+                <span className="text-gray-600 w-6 sm:w-8 flex-shrink-0">1</span>
                 <span className={highlightedCodeLine === "outer-loop" ? "text-yellow-400" : ""}>
                   for (let i = 0; i &lt; n; i++) &#123;
                 </span>
               </div>
-
               {/* Line 2 */}
               <div className="flex">
-                <span className="text-gray-600 w-8 flex-shrink-0">2</span>
+                <span className="text-gray-600 w-6 sm:w-8 flex-shrink-0">2</span>
                 <span className={highlightedCodeLine === "inner-loop" ? "text-yellow-400" : ""}>
                   &nbsp;&nbsp;for (let j = 0; j &lt; n - i - 1; j++) &#123;
                 </span>
@@ -129,7 +127,7 @@ const BubbleSortAnimation = () => {
 
               {/* Line 3 */}
               <div className="flex">
-                <span className="text-gray-600 w-8 flex-shrink-0">3</span>
+                <span className="text-gray-600 w-6 sm:w-8 flex-shrink-0">3</span>
                 <span className={highlightedCodeLine === "comparison" ? "text-yellow-400" : ""}>
                   &nbsp;&nbsp;&nbsp;&nbsp;if (arr[j] &gt; arr[j + 1]) &#123;
                 </span>
@@ -137,7 +135,7 @@ const BubbleSortAnimation = () => {
 
               {/* Line 4 */}
               <div className="flex">
-                <span className="text-gray-600 w-8 flex-shrink-0">4</span>
+                <span className="text-gray-600 w-6 sm:w-8 flex-shrink-0">4</span>
                 <span className={highlightedCodeLine === "swap" ? "text-green-400" : ""}>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[arr[j], arr[j+1]] = [arr[j+1], arr[j]];
                 </span>
@@ -145,19 +143,19 @@ const BubbleSortAnimation = () => {
 
               {/* Line 5 */}
               <div className="flex">
-                <span className="text-gray-600 w-8 flex-shrink-0">5</span>
+                <span className="text-gray-600 w-6 sm:w-8 flex-shrink-0">5</span>
                 <span className="text-gray-300">&nbsp;&nbsp;&nbsp;&nbsp;&#125;</span>
               </div>
 
               {/* Line 6 */}
               <div className="flex">
-                <span className="text-gray-600 w-8 flex-shrink-0">6</span>
+                <span className="text-gray-600 w-6 sm:w-8 flex-shrink-0">6</span>
                 <span className="text-gray-300">&nbsp;&nbsp;&#125;</span>
               </div>
 
               {/* Line 7 */}
               <div className="flex">
-                <span className="text-gray-600 w-8 flex-shrink-0">7</span>
+                <span className="text-gray-600 w-6 sm:w-8 flex-shrink-0">7</span>
                 <span className="text-gray-300">&#125;</span>
               </div>
             </code>
@@ -166,65 +164,49 @@ const BubbleSortAnimation = () => {
 
         {/* Array Section */}
         <div className="flex-1 flex flex-col items-center">
-          {/* Buttons for selecting cases */}
-          <div className="flex gap-3 mt-4 mb-6">
+          {/* Buttons Grid */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-2 mt-4 mb-4 sm:mb-6 w-full">
             <button
               onClick={setBestCase}
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold
-              hover:bg-blue-600 hover:shadow-lg transition-all duration-200
-              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-              active:bg-blue-700 active:shadow-inner shadow-md"
+              className="text-xs sm:text-base px-2 py-1 sm:px-4 sm:py-2 rounded-lg font-semibold bg-blue-500 hover:bg-blue-600 transition-all"
             >
-              Best Case
+              Best
             </button>
             <button
               onClick={setWorstCase}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold
-              hover:bg-red-600 hover:shadow-lg transition-all duration-200
-              focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
-              active:bg-red-700 active:shadow-inner shadow-md"
+              className="text-xs sm:text-base px-2 py-1 sm:px-4 sm:py-2 rounded-lg font-semibold bg-red-500 hover:bg-red-600 transition-all"
             >
-              Worst Case
+              Worst
             </button>
             <button
               onClick={setAverageCase}
-              className="bg-amber-500 text-white px-4 py-2 rounded-lg font-semibold
-              hover:bg-amber-600 hover:shadow-lg transition-all duration-200
-              focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2
-              active:bg-amber-700 active:shadow-inner shadow-md"
+              className="text-xs sm:text-base px-2 py-1 sm:px-4 sm:py-2 rounded-lg font-semibold bg-amber-500 hover:bg-amber-600 transition-all"
             >
-              Average Case
+              Average
             </button>
             <button
               onClick={bubbleSort}
-              className="bg-emerald-500 text-white px-4 py-2 rounded-lg font-semibold
-              hover:bg-emerald-600 hover:shadow-lg transition-all duration-200
-              focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2
-              active:bg-emerald-700 active:shadow-inner shadow-md
-              disabled:opacity-50 disabled:cursor-not-allowed"
+              className="text-xs sm:text-base px-2 py-1 sm:px-4 sm:py-2 rounded-lg font-semibold bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50"
               disabled={isSorting}
             >
               Sort
             </button>
             <button
               onClick={resetArray}
-              className="bg-slate-600 text-white px-4 py-2 rounded-lg font-semibold
-              hover:bg-slate-700 hover:shadow-lg transition-all duration-200
-              focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2
-              active:bg-slate-800 active:shadow-inner shadow-md
-              disabled:opacity-50 disabled:cursor-not-allowed"
+              className="text-xs sm:text-base px-2 py-1 sm:px-4 sm:py-2 rounded-lg font-semibold bg-slate-600 hover:bg-slate-700 disabled:opacity-50"
               disabled={isSorting}
             >
-              Reset Array
+              Reset
             </button>
           </div>
 
-          {/* Sorting Array Visual */}
-          <div className="flex gap-4 pt-4">
+          {/* Array Visualization */}
+          <div className="flex gap-2 sm:gap-4 pt-2 sm:pt-4">
             {array.map((value, index) => (
               <div
                 key={index}
-                className={`w-16 h-16 text-white flex items-center justify-center rounded shadow-md ${highlightedIndices.includes(index) ? "bg-red-500" : "bg-blue-500"} block`}
+                className={`w-12 h-12 sm:w-16 sm:h-16 text-sm sm:text-base flex items-center justify-center rounded shadow-md ${highlightedIndices.includes(index) ? "bg-red-500" : "bg-blue-500"
+                  } block`}
                 style={{ transition: "transform 0.5s" }}
               >
                 {value}
@@ -232,8 +214,10 @@ const BubbleSortAnimation = () => {
             ))}
           </div>
 
-          {/* Sorting Step Text */}
-          <div className="text-lg mt-4 text-gray-300 text-center">{currentStep}</div>
+          {/* Step Text */}
+          <div className="text-sm sm:text-lg mt-3 sm:mt-4 text-gray-300 text-center px-2">
+            {currentStep}
+          </div>
         </div>
       </div>
     </div>
