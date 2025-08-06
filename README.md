@@ -1,69 +1,51 @@
-# Algorithm Visualizer 🚀
+# 🧠 Algorithm Visualizer 🚀  
+**Visualize. Understand. Master.**
 
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)  
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
-An interactive web application for visualizing various algorithms with real-time animations and comparisons.
+> **Learn algorithms the visual way.**  
+> Explore sorting, searching, and data structure operations through **interactive animations**, **real-time performance analysis**, and **side-by-side comparisons** — all built with **React** and styled with **Tailwind CSS**.
 
-![Demo Screenshot](/public/home.png) 
-![Demo Screenshot](/public/searching.png)
+![Demo Screenshot](/public/home.png)  
+*Home View – Clean, modern UI powered by Tailwind’s utility-first design.*
 
-![Demo Screenshot](/public/visualizer.png) 
-![Demo Screenshot](/public/bubble.png) 
+![Demo Screenshot](/public/searching.png)  
+*Searching Algorithms – Clear, intuitive visual flow.*
 
-## 🌟 Key Features
+![Demo Screenshot](/public/visualizer.png)  
+*Algorithm in Action – Watch every swap, compare, and pivot.*
 
-### 🌀 Sorting Algorithm Visualizations
-- **Bubble Sort**  
-  🟢 Step-by-step visualization of element swapping  
-  🟢 Best/worst case performance comparison
-- **Quick Sort**  
-  🔵 Partition process visualization with pivot highlighting  
-  🔵 Recursive division animation
-- **Insertion Sort**  
-  🟡 Interactive element insertion demonstration  
-  🟡 Adaptive sorting visualization 
+![Demo Screenshot](/public/bubble.png)  
+*Bubble Sort Visualization – Step-by-step breakdown with color-coded elements.*
 
-### ⚖️ Algorithm Comparison Suite
-- 🧪 Real-time performance benchmarking
-- 📊 Side-by-side execution visualization
-- ⏱️ Time complexity analysis (`O(n²)` vs `O(n log n)`)
-- 📈 Memory usage comparison metrics
+---
 
-### 🔍 Searching Algorithm Visualizations
-- **Binary Search**  
-  🔎 Divide-and-conquer pattern visualization  
-  🔎 Midpoint calculation highlighting
-- **Linear Search**  
-  📍 Sequential check animation  
-  📍 Worst-case scenario demonstration
-- **Jump Search**  
-  🦘 Block size optimization visualization  
-  🦘 Backward linear search animation
+## 🌟 Why This Visualizer?
 
-### 🧩 Data Structure Operations
-- **Array Manipulation**  
-  🧬 Dynamic resizing demonstration  
-  🧬 Element insertion/deletion animations
-- **Complexity Analysis**  
-  📉 Time/space complexity overlays  
-  📉 Best/worst case scenario toggles
+Understanding algorithms shouldn’t be abstract. This app turns complex logic into **engaging, interactive experiences** that help students, developers, and educators **see how algorithms really work** — in real time.
 
-### 🎮 Interactive Features
-- **Customization**  
-  🎚️ Adjustable animation speeds (0.5x-4x)  
-  🎛️ Configurable array sizes (50-100 elements)
-- **Scenario Modes**  
-  🏆 Best Case (Pre-sorted array)  
-  🔥 Worst Case (Reverse-sorted array)  
-  🎲 Average Case (Random array)
-- **Real-time Analytics**  
-  📊 Operation counter display  
-  ⏱️ Execution timer  
-  📈 Memory usage tracker
+Whether you're preparing for interviews, teaching a class, or just love CS fundamentals, this tool makes learning **faster, clearer, and more fun**.
 
-## 🛠️ Installation
+---
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yashthakare93/Visualizer.git
+## 🔍 What It Does
+
+Watch algorithms **come to life** with smooth animations and real-time insights:
+
+
+| Category             | Feature                          | Description |
+|----------------------|----------------------------------|-----------|
+| **Sorting Algorithms** | Bubble, Quick, Insertion Sort    | Animated step-by-step execution with pivot, swap, and recursion highlights |
+| **Searching Algorithms** | Binary, Linear, Jump Search   | Visualize search paths, midpoints, and jump blocks |
+| **Algorithm Comparison** | Side-by-side mode             | Compare execution speed, operations, and efficiency in real time |
+| **Complexity Analysis** | Time & Space Overlays          | Real-time `O(n²)` vs `O(n log n)` display and memory usage |
+| **Interactive Controls** | Speed (0.5x – 4x)             | Adjust animation speed for better understanding |
+|                      | Array Size (10–100)             | Customize input size dynamically |
+|                      | Scenario Modes                  | Test **Best**, **Worst**, and **Average** cases |
+| **Real-time Analytics** | Operation Counter              | Track comparisons, swaps, and jumps |
+|                      | Execution Timer                 | See how fast each algorithm runs |
+|                      | Memory Estimation               | Monitor relative space usage |
+| **Data Structure Ops** | Array Insert/Delete/Resize     | Visualize dynamic array behavior |
+
